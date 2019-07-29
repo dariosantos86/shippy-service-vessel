@@ -15,7 +15,7 @@ type handler struct {
 func (s *handler) FindAvailable(ctx context.Context, req *pb.Specification, res *pb.Response) error {
 
 	// Find the next available vessel
-	vessel, err := s.repo.FindAvailable(req)
+	vessel, err := s.repository.FindAvailable(req)
 	if err != nil {
 		return err
 	}
