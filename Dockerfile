@@ -8,7 +8,7 @@ WORKDIR /app/shippy-service-vessel
 COPY . .
 
 RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-service-vessel
+RUN CGO_ENABLED=0 GOOS=linux go build -o shippy-service-vessel -a -installsuffix cgo main.go repository.go handler.go datastore.go
 
 
 FROM alpine:latest
