@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	pb "github.com/dariosantos86/shippy-service-consignment/proto/consignment"
+	pb "github.com/dariosantos86/shippy-service-vessel/proto/vessel"
 )
 
 // Our grpc service handler
@@ -11,7 +11,8 @@ type handler struct {
 	repository
 }
 
-func (s *service) FindAvailable(ctx context.Context, req *pb.Specification, res *pb.Response) error {
+// FindAvailable vessels
+func (s *handler) FindAvailable(ctx context.Context, req *pb.Specification, res *pb.Response) error {
 
 	// Find the next available vessel
 	vessel, err := s.repo.FindAvailable(req)

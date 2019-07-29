@@ -4,13 +4,13 @@ package main
 import (
 	"context"
 
-	pb "github.com/dariosantos86/shippy-service-consignment/proto/consignment"
+	pb "github.com/dariosantos86/shippy-service-vessel/proto/vessel"
 	"go.mongodb.org/mongo-driver/mongo"
 	"gopkg.in/mgo.v2/bson"
 )
 
 type repository interface {
-	FindAvailable(*pb.Specification) (*pb.Vessel, error)
+	FindAvailable(spec *pb.Specification) (*pb.Vessel, error)
 	Create(vessel *pb.Vessel) error
 }
 
